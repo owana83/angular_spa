@@ -8,7 +8,7 @@ import { ActivatedRoute } from '@angular/router';
   templateUrl: './heroes-encontrados.component.html'
 })
 export class HeroesEncontradosComponent implements OnInit {
-  heroesEncontrados: any[] = [];
+  heroes: any[] = [];
   termino: string;
 
   constructor(private activatedRoute: ActivatedRoute,
@@ -18,8 +18,8 @@ export class HeroesEncontradosComponent implements OnInit {
   ngOnInit() {
     this.activatedRoute.params.subscribe( params => {
       this.termino = params.termino;
-      this.heroesEncontrados = this._heroesService.buscarHeroes( params['termino'] );
-      console.log(this.heroesEncontrados);
+      this.heroes = this._heroesService.buscarHeroes( params['termino'] );
+      console.log(this.heroes);
     });
   }
 
